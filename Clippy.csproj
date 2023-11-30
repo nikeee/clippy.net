@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <PublishReadyToRun>true</PublishReadyToRun>
+    <IsAotCompatible>true</IsAotCompatible>
     <!--
       <PublishTrimmed>true</PublishTrimmed>
       <PublishSingleFile>true</PublishSingleFile>
