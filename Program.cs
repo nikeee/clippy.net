@@ -102,12 +102,14 @@ class Program
 
 public static class StringExtensions
 {
-    public static string[] GetLines(this string value) => value.Split("\n");
+    const int tabWidth = 4;
+    private readonly static string TabReplacement = ' '.Repeat(tabWidth);
+    public static string[] GetLines(this string value) => value.Split("\n").Select(l => l.Replace("\t", TabReplacement)).ToArray();
 
     private const char EscapeChar = '\x1B';
     public static int GetLengthIgnoringVTEscapeCodes(this string value)
     {
-        // TODO: Parse only chars that are printed to screen.
+        // TODO: Parse only chars that are printed to screen. Or just count grapheme clusters
         // This way, colored text does not mess with the speech bubble
         return value.Length;
     }
